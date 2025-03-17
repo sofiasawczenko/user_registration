@@ -1,0 +1,86 @@
+@import "../../styles/global.scss";
+
+.form-control.border-0 {
+  border-bottom: 1px solid #ccc !important;
+  border-radius: 0;
+}
+
+.title {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: $page-primary-text;
+}
+
+.formText {
+  color: $input-text-color;
+  
+  &:hover {
+    color: $input-text-focus;
+  }
+}
+
+.subtitle {
+  font-size: 1rem;
+  font-weight: 400;
+  color: $page-primary-text;
+}
+
+.dashedHr {
+  border-top: 2px dashed #ccc;
+  margin: 1rem 0 3rem 0;
+}
+
+.img {
+  width: 50vh;
+  height: auto;
+  top: 50%;
+  position: relative;
+}
+
+.btnsubmit {
+  color: $enabled-btn-text-focus;
+  background-color: $disabled-btn-color-bg;
+  cursor: not-allowed;
+  border: none;
+  transition: background-color 0.3s ease, cursor 0.3s ease;
+  width: 15vw;
+  height: 2.2rem;
+  border-radius: 1rem;
+  
+  // Quando o botão não está desabilitado
+  &:not(:disabled) {
+    background-color: $enabled-btn-color-bg;
+    cursor: pointer;
+    
+    &:hover {
+      opacity: 70%;
+    }
+  }
+
+  // Quando o botão está em estado de loading
+  &.loading {
+    background-color: $enabled-btn-color-bg !important;  // Cor habilitada
+    cursor: not-allowed;  // Não muda o cursor, mas mantém a cor
+  }
+}
+
+.loader {
+  width: 20px;
+  height: 20px;
+  border: 3px solid transparent;
+  border-radius: 50%;
+  margin: 0 auto;
+  border-top-color: white;
+  animation: spin 0.6s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.loadingBtn {
+  background-color: $enabled-btn-color-bg;
+}

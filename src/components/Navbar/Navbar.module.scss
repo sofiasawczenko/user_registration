@@ -1,0 +1,33 @@
+@import "../../styles/global.scss";
+
+.btn {
+  background-color: white !important;
+}
+
+.btn-outline-primary {
+  color: #202020;
+  border: none;
+  background-color: white !important;
+}
+
+.active-btn {
+  background-color: white !important;
+  color: $enabled-btn-color-bg !important;
+  border: none !important;
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: $enabled-btn-color-bg;
+  }
+}
+
+.active-btn:hover {
+  color: $enabled-btn-color-bg !important;
+  border: none;
+}

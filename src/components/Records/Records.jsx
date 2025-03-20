@@ -64,7 +64,7 @@ function Records() {
       <hr className={styles.dashedHr} />
 
       {data.length > 0 ? (
-        <div className="table-responsive p-3 bg-white rounded">
+        <div className="bg-white rounded p-3" style={{ overflow: "auto", maxHeight: "500px" }}>
           <table className="table align-middle">
             <thead className="bg-light">
               <tr>

@@ -1,6 +1,6 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import styles from './Navbar.module.scss'; // Importe o CSS Module corretamente
+import styles from './Navbar.module.scss'; 
 
 const Navbar = ({ activeTab, setActiveTab }) => {
   return (

@@ -2,6 +2,9 @@ import { useState } from 'react';
 import { useLocalStorage } from '../../hooks/useLocalStorage';
 import styles from './Form.module.scss';
 
+// Importando a imagem diretamente
+import greetingsImage from '../../assets/images/greetings.png';
+
 function Form() {
   const [data, setData] = useLocalStorage('data', []);
   const [formData, setFormData] = useState({ name: '', email: '', cpf: '', telefone: '' });
@@ -36,24 +39,23 @@ function Form() {
     }
   };
 
-  /// Validação de campos corrigida
-const validateField = (name, value) => {
-  let errorMessage = '';
-  const rawValue = value.replace(/\D/g, ''); // Remove caracteres não numéricos
+  // Validação de campos corrigida
+  const validateField = (name, value) => {
+    let errorMessage = '';
+    const rawValue = value.replace(/\D/g, ''); // Remove caracteres não numéricos
 
-  if (name === 'name' && value.length < 3) {
-    errorMessage = 'O nome deve ter pelo menos 3 caracteres.';
-  } else if (name === 'email' && !/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(value)) {
-    errorMessage = 'Por favor, insira um e-mail válido. Exemplo: usuario@dominio.com';
-  } else if (name === 'cpf' && !/^\d{11}$/.test(rawValue)) {
-    errorMessage = 'CPF inválido. Deve conter 11 números.';
-  } else if (name === 'telefone' && !/^\d{10,11}$/.test(rawValue)) {
-    errorMessage = 'O telefone deve conter 10 ou 11 dígitos.';
-  }
+    if (name === 'name' && value.length < 3) {
+      errorMessage = 'O nome deve ter pelo menos 3 caracteres.';
+    } else if (name === 'email' && !/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(value)) {
+      errorMessage = 'Por favor, insira um e-mail válido. Exemplo: usuario@dominio.com';
+    } else if (name === 'cpf' && !/^\d{11}$/.test(rawValue)) {
+      errorMessage = 'CPF inválido. Deve conter 11 números.';
+    } else if (name === 'telefone' && !/^\d{10,11}$/.test(rawValue)) {
+      errorMessage = 'O telefone deve conter 10 ou 11 dígitos.';
+    }
 
-  return errorMessage;
-};
-
+    return errorMessage;
+  };
 
   // Tratamento de mudança nos campos
   const handleChange = (e) => {
@@ -160,7 +162,7 @@ const validateField = (name, value) => {
         </div>
       </div>
       <div className="d-none d-md-block">
-        <img src="src/assets/images/greetings.png" alt="Tinnova Logo" className={styles.img} />
+        <img src={greetingsImage} alt="Greetings" className={styles.img} />
       </div>
     </div>
   );
